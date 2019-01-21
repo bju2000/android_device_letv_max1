@@ -33,7 +33,7 @@ vendor/lib64/libaudcal.so
 vendor/lib64/libhwdaphal.so
 
 # Audio amplifier calibration sound
-NOT FOUND: etc/silence_short.wav
+# NOT FOUND: etc/silence_short.wav
 
 # Bluetooth - OxygenOS 3.6.0
 bin/btnvtool:vendor/bin/btnvtool
@@ -54,12 +54,12 @@ vendor/lib64/libbtnv.so
 
 # Camera - OxygenOS 3.6.0
 bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
-NOT FOUND: lib/libFNVfbEngineLib.so
+# NOT FOUND: lib/libFNVfbEngineLib.so
 lib/libmm-qcamera.so
-NOT FOUND: lib/libmorpho_video_refiner.so
-NOT FOUND: lib/libopcamerahw_interface.so
-NOT FOUND: lib64/libopcamera.so
-NOT FOUND: lib64/libopcameralib.so
+# NOT FOUND: lib/libmorpho_video_refiner.so
+# NOT FOUND: lib/libopcamerahw_interface.so
+# NOT FOUND: lib64/libopcamera.so
+# NOT FOUND: lib64/libopcameralib.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libflash_pmic.so
 vendor/lib/libjpegdhw.so
@@ -99,7 +99,7 @@ vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
 vendor/lib/liboemcamera.so
-NOT FOUND: vendor/lib/libois_rohm_bu63165gwl.so
+# NOT FOUND: vendor/lib/libois_rohm_bu63165gwl.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib64/libmmcamera2_q3a_core.so
@@ -107,45 +107,45 @@ vendor/lib64/libmmcamera2_sensor_debug.so
 vendor/lib64/libmmcamera2_stats_algorithm.so
 
 # Camera actuators - OxygenOS 3.6.0
-NOT FOUND: vendor/lib/libactuator_rohm_bu63165gwl.so
-NOT FOUND: vendor/lib/libactuator_rohm_bu63165gwl_camcorder.so
-NOT FOUND: vendor/lib/libactuator_rohm_bu63165gwl_camera.so
+# NOT FOUND: vendor/lib/libactuator_rohm_bu63165gwl.so
+# NOT FOUND: vendor/lib/libactuator_rohm_bu63165gwl_camcorder.so
+# NOT FOUND: vendor/lib/libactuator_rohm_bu63165gwl_camera.so
 
 # Camera chromatix - OxygenOS 3.6.0
-NOT FOUND: vendor/lib/libchromatix_ov13860_common.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_hfr.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_liveshot.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_panorama.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_preview.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_snapshot.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_video.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_zsl.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_default_video.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_hfr.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_liveshot.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_panorama.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_postproc.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_preview.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_quarter_size_video.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_snapshot.so
-NOT FOUND: vendor/lib/libchromatix_ov13860_zsl.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_cpp_liveshot.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_cpp_preview.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_cpp_snapshot.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_cpp_video.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_postproc.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_preview.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_snapshot.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_video.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_cpp_liveshot.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_cpp_preview.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_cpp_snapshot.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_cpp_video.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_postproc.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_preview.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_snapshot.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_video.so
-NOT FOUND: vendor/lib/libchromatix_ov5648_common.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_common.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_hfr.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_liveshot.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_panorama.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_preview.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_snapshot.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_video.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_cpp_zsl.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_default_video.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_hfr.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_liveshot.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_panorama.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_postproc.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_preview.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_quarter_size_video.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_snapshot.so
+# NOT FOUND: vendor/lib/libchromatix_ov13860_zsl.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_cpp_liveshot.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_cpp_preview.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_cpp_snapshot.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_cpp_video.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_postproc.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_preview.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_snapshot.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_15fps_video.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_cpp_liveshot.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_cpp_preview.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_cpp_snapshot.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_cpp_video.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_postproc.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_preview.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_snapshot.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_30fps_video.so
+# NOT FOUND: vendor/lib/libchromatix_ov5648_common.so
 
 # Camera firmware - OxygenOS 3.6.0
 etc/firmware/cpp_firmware_v1_1_1.fw
@@ -198,13 +198,13 @@ vendor/lib/libmmcamera_isp_scaler_viewfinder46.so
 vendor/lib/libmmcamera_isp_sce40.so
 vendor/lib/libmmcamera_isp_sub_module.so
 vendor/lib/libmmcamera_isp_wb46.so
-NOT FOUND: vendor/lib/libmmcamera_ov13860.so
-NOT FOUND: vendor/lib/libmmcamera_ov13860_eeprom.so
-NOT FOUND: vendor/lib/libmmcamera_ov5648.so
-NOT FOUND: vendor/lib/libmmcamera_ov5648_eeprom.so
+# NOT FOUND: vendor/lib/libmmcamera_ov13860.so
+# NOT FOUND: vendor/lib/libmmcamera_ov13860_eeprom.so
+# NOT FOUND: vendor/lib/libmmcamera_ov5648.so
+# NOT FOUND: vendor/lib/libmmcamera_ov5648_eeprom.so
 
 # Display calibration - OxygenOS 3.6.0
-NOT FOUND: -etc/pp_calib_data_jd35695_1080p_cmd_mode_dsi_panel.xml
+# NOT FOUND: -etc/pp_calib_data_jd35695_1080p_cmd_mode_dsi_panel.xml
 
 # DRM - OxygenOS 3.6.0
 bin/qseecomd:vendor/bin/qseecomd
@@ -216,11 +216,11 @@ vendor/lib64/librpmb.so
 vendor/lib64/libssd.so
 
 # Fingerprint sensor - OxygenOS 3.6.0
-NOT FOUND: etc/firmware/fingerprints.b00
-NOT FOUND: etc/firmware/fingerprints.b01
-NOT FOUND: etc/firmware/fingerprints.b02
-NOT FOUND: etc/firmware/fingerprints.b03
-NOT FOUND: etc/firmware/fingerprints.mdt
+# NOT FOUND: etc/firmware/fingerprints.b00
+# NOT FOUND: etc/firmware/fingerprints.b01
+# NOT FOUND: etc/firmware/fingerprints.b02
+# NOT FOUND: etc/firmware/fingerprints.b03
+# NOT FOUND: etc/firmware/fingerprints.mdt
 lib/hw/fingerprint.msm8994.so
 lib/lib_fpc_tac_shared.so
 lib64/hw/fingerprint.msm8994.so
@@ -261,7 +261,7 @@ vendor/lib/egl/libGLESv1_CM_adreno.so|12559bdb260be99259c5114eb18141a6f55ec5c6
 vendor/lib/egl/libGLESv2_adreno.so|99b5d3351ff74dd80ce8788d8cf813f795c004d3
 vendor/lib/egl/libq3dtools_adreno.so|32f28df5844ed9826af5a77d7519db6b5db93ceb
 vendor/lib/egl/libq3dtools_esx.so|a7e233d9d6c3d61fa9b762e5c4c1772a5223ba14
-NOT FOUND: vendor/lib/hw/vulkan.msm8994.so|8bd98116b5a586839aad4c93468fc04f044d4ef4
+# NOT FOUND: vendor/lib/hw/vulkan.msm8994.so|8bd98116b5a586839aad4c93468fc04f044d4ef4
 vendor/lib/libC2D2.so|668aaec9820480a9f1b04a6994be28bc4fef5677
 vendor/lib/libCB.so|ced7d5bfdbb5b5c0cb2b69e67942d568bedff4d5
 vendor/lib/libRSDriver_adreno.so|ee3386248adfa7d1a8c1107e051bcbbd3e8df0c1
@@ -271,7 +271,7 @@ vendor/lib/libc2d30-a4xx.so|e9e4975a5e16e1799cd1883bbb8905ce4b51aa7c
 vendor/lib/libgsl.so|b90e66e879dfee14997282358ca4cf9cd3cbee83
 vendor/lib/libllvm-glnext.so|18ecddeb137e38ca12563a2b3a39dd2f6df1f68b
 vendor/lib/libllvm-qcom.so|ab8604edbedb9db19ac9f0cfbeb4473adf20b2c5
-NOT FOUND: vendor/lib/libllvm-qgl.so|ffd2e9c41d8976bf259b6463a1690a516daa458f
+# NOT FOUND: vendor/lib/libllvm-qgl.so|ffd2e9c41d8976bf259b6463a1690a516daa458f
 vendor/lib/libmm-disp-apis.so|5475bf3d21201ce75597202ce81c4b15ce5b6868
 vendor/lib/librs_adreno.so|bb1d5cb84f14ed18fcbfb4815692cb196e44f180
 vendor/lib/librs_adreno_sha1.so|be8a817743950dac6e22b50cbd9657c2d35c35f2
@@ -282,7 +282,7 @@ vendor/lib64/egl/libGLESv1_CM_adreno.so|e429adb54d16ea1e359bc0a56b0a3a7336989a77
 vendor/lib64/egl/libGLESv2_adreno.so|f072b33a708cc81de6e6a2d09741696f8c9ce034
 vendor/lib64/egl/libq3dtools_adreno.so|c5fcb698418bf5aedb15e6cf87a6d649b7f09aba
 vendor/lib64/egl/libq3dtools_esx.so|82abcc5b16842e5ec32c1cdc6745c1e36f31d63e
-NOT FOUND: vendor/lib64/hw/vulkan.msm8994.so|123f72ad06ab296028dc5d14884453630676027f
+# NOT FOUND: vendor/lib64/hw/vulkan.msm8994.so|123f72ad06ab296028dc5d14884453630676027f
 vendor/lib64/libC2D2.so|da5c955221f736361a3646870600744756a6bd87
 vendor/lib64/libCB.so|7bd8ce62b1f4e52b162481d89b9f4af5e94d588f
 vendor/lib64/libRSDriver_adreno.so|05d94ad793ba74c1f6635762eb7871a611001c9c
@@ -292,7 +292,7 @@ vendor/lib64/libc2d30-a4xx.so|e40a2efbecaccd34970b981bb8d83f3fa58f3cec
 vendor/lib64/libgsl.so|e6435ecf1baae08408a0cc43e1568ce42f1ddb56
 vendor/lib64/libllvm-glnext.so|abbf71eceb4048c63741cc43f2c15d4f8034bffa
 vendor/lib64/libllvm-qcom.so|10fe39e71615629bb5af03794fd0a970f4b700fc
-NOT FOUND: vendor/lib64/libllvm-qgl.so|192a30d29c1f0c5e2a6f38ca3df58118be85f346
+# NOT FOUND: vendor/lib64/libllvm-qgl.so|192a30d29c1f0c5e2a6f38ca3df58118be85f346
 vendor/lib64/libmm-disp-apis.so|157a9d0e3229ae53ecae7a0dcf7cf9762804ff7f
 vendor/lib64/librs_adreno.so|18e913b6d8f79e4b8563a8c8a0b2475e609d4813
 vendor/lib64/librs_adreno_sha1.so|ef430803f5b7623d774166d7c6130012f5f24845
@@ -304,7 +304,7 @@ etc/firmware/a420_pm4.fw
 
 # Keystore - OxygenOS 3.6.0
 vendor/lib64/hw/keystore.msm8994.so|567487839c061bc76f020ddb7b3e4abe5b2bd93b
-NOT FOUND: vendor/lib64/libcrypto_keystore.so|a09a8832939b5e15be00386293854af667e031db
+# NOT FOUND: vendor/lib64/libcrypto_keystore.so|a09a8832939b5e15be00386293854af667e031db
 
 # Media - OxygenOS 3.6.0
 vendor/lib/libDivxDrm.so
@@ -336,12 +336,12 @@ etc/firmware/venus.mbn
 etc/firmware/venus.mdt
 
 # Modem - OxygenOS 3.6.0
-NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_ATT-VoLTE.mbn
-NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_CMCC_CSFB_DSDS_Commercial_Volte.mbn
-NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_CU_OpenMkt-Commercial.mbn
-NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_OEM_Overseas-Commercial.mbn
-NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_Reliance-Commercial.mbn
-NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_TMO-Commercial.mbn
+# NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_ATT-VoLTE.mbn
+# NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_CMCC_CSFB_DSDS_Commercial_Volte.mbn
+# NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_CU_OpenMkt-Commercial.mbn
+# NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_OEM_Overseas-Commercial.mbn
+# NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_Reliance-Commercial.mbn
+# NOT FOUND: etc/firmware/mbn_ota/mcfg_sw_TMO-Commercial.mbn
 
 # Perf - OxygenOS 3.6.0
 bin/energy-awareness:vendor/bin/energy-awareness
@@ -378,7 +378,7 @@ vendor/lib64/libmm-qdcm.so
 
 # QMI - OxygenOS 3.6.0
 bin/irsc_util:vendor/bin/irsc_util
-NOT FOUND: etc/permissions/qti_libpermissions.xml|ef3c88495f2f61a2d16e1445113a9d80f8db0e0a
+# NOT FOUND: etc/permissions/qti_libpermissions.xml|ef3c88495f2f61a2d16e1445113a9d80f8db0e0a
 etc/permissions/qti_permissions.xml
 -vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
@@ -430,11 +430,11 @@ etc/permissions/telephonyservice.xml
 framework/qcnvitems.jar|1ddb327e1a0afa103024f123ac618e6b89f9044d
 framework/qcrilhook.jar|77cb99dce9917a8b80f1f89cd6feac344bff8909
 framework/QtiTelephonyServicelibrary.jar|7c1dd966c584e4f76cb9b7e14755d1f820bd3a90
-NOT FOUND: lib64/libparam.so
+# NOT FOUND: lib64/libparam.so
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|55eab7bdd59841e3622133eb736b536222231e82
 vendor/bin/qti
-NOT FOUND: vendor/lib64/com.quicinc.cne.api@1.0.so|503825cc8a3c0d422e16e04b398d2c1924e518ca
-NOT FOUND: vendor/lib64/com.quicinc.cne.constants@1.0.so|a60fde6f9328635bf43bb7008dd9517e4e749e8b
+# NOT FOUND: vendor/lib64/com.quicinc.cne.api@1.0.so|503825cc8a3c0d422e16e04b398d2c1924e518ca
+# NOT FOUND: vendor/lib64/com.quicinc.cne.constants@1.0.so|a60fde6f9328635bf43bb7008dd9517e4e749e8b
 vendor/lib64/libcneapiclient.so|33e7465996749a8823ac03e34a94e3112c88dda4
 vendor/lib64/libconfigdb.so
 vendor/lib64/liblqe.so
@@ -444,7 +444,7 @@ vendor/lib64/libqcmaputils.so
 vendor/lib64/libril-qc-qmi-1.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
-NOT FOUND: vendor/lib64/libsettings.so|3e459839d90a27d2eb23a3c9d030f46a5c4bfaf1
+# NOT FOUND: vendor/lib64/libsettings.so|3e459839d90a27d2eb23a3c9d030f46a5c4bfaf1
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so
 vendor/qcril.db
@@ -454,7 +454,7 @@ bin/ims_rtp_daemon:vendor/bin/ims_rtp_daemon|896a7d67d73f9c0ef0f48f86af0e055737c
 bin/imscmservice:vendor/bin/imscmservice|c606b123bdd105866947a9ae19aab05349ad2dfd
 bin/imsdatadaemon:vendor/bin/imsdatadaemon|2aa4067b74fe525411984f87666d81c5b6b575d3
 bin/imsqmidaemon:vendor/bin/imsqmidaemon|88886668eda7b7303b4a7aefd5b8b3fbffd81b02
-NOT FOUND: etc/permissions/imscm.xml|8b99ec26c783966bbea1fcb8e72c7c0206a4e802
+# NOT FOUND: etc/permissions/imscm.xml|8b99ec26c783966bbea1fcb8e72c7c0206a4e802
 framework/imscmlibrary.jar|0c24d6540c06efede52169c1445272f43748180f
 framework/rcsimssettings.jar|566a0f637344ca3182aca33753e404977fc77ecc
 -vendor/app/ims/ims.apk|0f9f714e31305dc293aa3e72ba19d24e8a6b11ae
@@ -485,18 +485,18 @@ vendor/lib64/libvoice-svc.so|238f774a4d0748c40569f6c3c48a87578f79c265
 # Sensors - OxygenOS 3.6.0
 bin/sensors.qcom:vendor/bin/sensors.qcom
 etc/sensors/hals.conf:vendor/etc/sensors/hals.conf
-NOT FOUND: etc/sensors/sensor_def_qcomdev.conf
+# NOT FOUND: etc/sensors/sensor_def_qcomdev.conf
 vendor/lib/hw/activity_recognition.msm8994.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
-NOT FOUND: vendor/lib/libsensor_thresh.so
-NOT FOUND: vendor/lib/libsensor_user_cal.so
+# NOT FOUND: vendor/lib/libsensor_thresh.so
+# NOT FOUND: vendor/lib/libsensor_user_cal.so
 vendor/lib/sensors.ssc.so
 vendor/lib64/hw/activity_recognition.msm8994.so
 vendor/lib64/libsensor1.so
 vendor/lib64/libsensor_reg.so
-NOT FOUND: vendor/lib64/libsensor_thresh.so
-NOT FOUND: vendor/lib64/libsensor_user_cal.so
+# NOT FOUND: vendor/lib64/libsensor_thresh.so
+# NOT FOUND: vendor/lib64/libsensor_user_cal.so
 vendor/lib64/sensors.ssc.so
 
 # Thermal - OxygenOS 3.6.0
@@ -508,17 +508,17 @@ vendor/lib64/libthermalioctl.so
 
 
 # Time services - from bardock-pro - OPM1.171019.011
-NOT FOUND: -vendor/app/TimeService/TimeService.apk|5055619766db32fe499cda86b892c9f3081219c5
-NOT FOUND: vendor/bin/time_daemon|8ea7d65a65c1d50afc6553ad52848b454c62563d
+# NOT FOUND: -vendor/app/TimeService/TimeService.apk|5055619766db32fe499cda86b892c9f3081219c5
+# NOT FOUND: vendor/bin/time_daemon|8ea7d65a65c1d50afc6553ad52848b454c62563d
 vendor/lib64/libtime_genoff.so|7683a85cae9f17cd535e8960fceda1d6831074a0
 
 # TP Firmware - OxygenOS 3.6.0
-NOT FOUND: etc/firmware/tp/14049/14049_FW_S1302.img
-NOT FOUND: etc/firmware/tp/14049/14049_FW_S3320_jdi.img
+# NOT FOUND: etc/firmware/tp/14049/14049_FW_S1302.img
+# NOT FOUND: etc/firmware/tp/14049/14049_FW_S3320_jdi.img
 
 # Widevine - kanged from Angler OPM3.171019.019
-NOT FOUND: vendor/lib/mediadrm/libwvdrmengine.so|fb276a490ee3d630f9ba5ba751b00397a2f6dca0
+# NOT FOUND: vendor/lib/mediadrm/libwvdrmengine.so|fb276a490ee3d630f9ba5ba751b00397a2f6dca0
 
 # Wifi
 bin/cnss-daemon:vendor/bin/cnss-daemon
-NOT FOUND: -lib64/libwpa_qmi_eap_proxy.so
+# NOT FOUND: -lib64/libwpa_qmi_eap_proxy.so
