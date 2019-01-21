@@ -34,6 +34,10 @@ vendor/lib64/libhwdaphal.so
 
 # Audio amplifier calibration sound
 # NOT FOUND: etc/silence_short.wav
+# Resolution:
+# wget "https://raw.githubusercontent.com/TheMuppets/proprietary_vendor_oneplus/lineage-16.0/oneplus2/proprietary/etc/silence_short.wav" -O vendor/letv/max1/proprietary/etc/silence_short.wav
+# declare etc/silence_short.wav again and run setup-makefiles.sh
+etc/silence_short.wav
 
 # Bluetooth - OxygenOS 3.6.0
 bin/btnvtool:vendor/bin/btnvtool
