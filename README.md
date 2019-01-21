@@ -42,4 +42,4 @@ brunch max1
 
 ## Need help?
 
-XDA is your friend! Have a look at [this thread]{https://forum.xda-developers.com/leeco-le1-pro/development/cm-14-1-android-7-1-unofficial-letv-t3530173/page93#post78729576}. Or keep in touch if you think I can help you.
+XDA is your friend! Have a look at [this thread](https://forum.xda-developers.com/leeco-le1-pro/development/cm-14-1-android-7-1-unofficial-letv-t3530173/page93#post78729576). Or keep in touch if you think I can help you.
