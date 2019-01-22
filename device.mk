@@ -343,5 +343,22 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/wifi/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
 
+
+# Some extras
+PRODUCT_PACKAGES += \
+	init.qcom.factory.sh \
+	init.magisk.rc \
+	init.class_main.sh \
+	init.qcom.class_core.sh \
+	init.trace.rc \
+	init.qcom.syspart_fixup.sh \
+	init.mdm.sh \
+	init.qcom.usb.x1.rc \
+	init.qcom.early_boot.sh \
+	init.target.rc \
+	init.qcom.usb.max1.rc \
+	init.letv.common.rc \
+	init.letv.rc
+
 # Inherit from oppo-common
 $(call inherit-product, device/oppo/common/common.mk)
