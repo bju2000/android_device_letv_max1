@@ -1,4 +1,4 @@
-#!/vendor/bin/sh
+#!/system/bin/sh
 # Copyright (c) 2012-2015, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -108,7 +108,7 @@ baseband=`getprop ro.baseband`
 echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
 usb_config=`getprop persist.sys.usb.config`
 case "$usb_config" in
-    "" | "adb" | "none") #USB persist config not set, select default configuration
+    "" | "adb") #USB persist config not set, select default configuration
       case "$esoc_link" in
           "HSIC")
               setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,serial_tty,rmnet_hsic,mass_storage,adb
@@ -146,9 +146,7 @@ case "$usb_config" in
                             setprop persist.sys.usb.config diag,adb
                         ;;
                         "msm8994" | "msm8992")
-                            #[BSP-66]-Anderson-Disable_set_the_property.
-                            #This will ause BSP-66 issue and cause all the port enable in default.
-                            #setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb
+                            setprop persist.sys.usb.config diag,serial_cdev,serial_tty,rmnet_ipa,mass_storage,adb
                         ;;
                         "msm8909")
                             setprop persist.sys.usb.config diag,serial_smd,rmnet_qti_bam,adb
@@ -162,23 +160,11 @@ case "$usb_config" in
           ;;
       esac
     ;;
+    "none")
+         setprop persist.sys.usb.config mtp
+    ;;
     * ) ;; #USB persist config exists, do nothing
 esac
-
-#VENDOR_EDIT
-#echo boot mode to kmsg
-boot_mode=`getprop ro.boot.ftm_mode`
-echo "boot_mode: $boot_mode" > /dev/kmsg
-case "$boot_mode" in
-    "ftm_at" | "ftm_rf" | "ftm_wlan" | "ftm_mos")
-        echo "FTM FORCE diag,adb" > /dev/kmsg
-        setprop persist.sys.usb.config diag,adb
-    ;;
-esac
-
-usb_config=`getprop persist.sys.usb.config`
-echo "AFTER: $usb_config" > /dev/kmsg
-#VENDOR_EDIT end
 
 #
 # Do target specific things
