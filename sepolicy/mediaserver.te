@@ -1,0 +1,25 @@
+# Grant access to Qualcomm MSM Interface (QMI) audio sockets to mediaserver
+qmux_socket(mediaserver)
+type acdb_data_file, file_type;
+
+# Permit mediaserver to create sockets with no specific SELinux class.
+# TODO: Investigate the specific type of socket.
+allow mediaserver self:socket create_socket_perms;
+allow mediaserver mpdecision_socket:dir r_dir_perms;
+unix_socket_send(mediaserver, mpdecision, mpdecision)
+binder_call(mediaserver, rild)
+unix_socket_connect(mediaserver, adspd, adspd)
+allow mediaserver audio_cutback_data_file:dir search;
+allow mediaserver audio_cutback_data_file:sock_file write;
+
+# TODO b/17015082
+allow mediaserver shell_data_file:dir search;
+
+#============= mediaserver ==============
+allow amp_exec amp_data_type:chr_file { read write ioctl open };
+allow mediaserver amp_data_type:chr_file { read write ioctl open };
+allow mediaserver acdb_data_file:file { open append create read getattr };
+allow mediaserver acdb_data_file:dir { write search add_name };
+# it wants these rules.  they fail
+# allow mediaserver system_data_file:file { append };
+# allow mediaserver system_data_file:dir write;
