@@ -24,21 +24,7 @@ For kernel (android_kernel_letv_msm8994) I used the one provided by LeTv (it was
 
 ## How to build
 
-1. Follow instructions on this page: https://wiki.lineageos.org/devices/oneplus2/build so that you'll have your repo synched and LineageOS base checked out.
-2. Checkout this repository under android/lineage/device/letv/max1
-3. Enter android/lineage/device/letv/max1 and run ./extract-files.sh. Optionally pass a parameter indicating the location of a copy of your ROM dirs.
-4. Find on the web a file called Le_Max_OpenSource.zip and unzip it to android/lineage/kernel/letv/msm8994
-5. Follow the page in #1 again in order to build. Basically:
-
-```
-source build/envsetup.sh
-breakfast max1
-export USE_CCACHE=1
-ccache -M 50G
-export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G"
-croot
-brunch max1
-```
+Follow instructions on this thread: https://forum.xda-developers.com/android/general/help-building-lineageos-leeco-letv-t3894262
 
 ## Need help?
 
