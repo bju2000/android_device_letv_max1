@@ -62,10 +62,10 @@ PRODUCT_PACKAGES += \
 #    msm8994_tune.sh
 
 # Keyhandler
-PRODUCT_PACKAGES += \
-    com.lineageos.keyhandler
+#PRODUCT_PACKAGES += \
+#    org.lineageos.keyhandler
 
-PRODUCT_SYSTEM_SERVER_JARS += com.lineageos.keyhandler
+#PRODUCT_SYSTEM_SERVER_JARS += org.lineageos.keyhandler
 
 # Permissions
 PRODUCT_COPY_FILES += \
