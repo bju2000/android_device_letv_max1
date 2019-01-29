@@ -23,6 +23,9 @@ $(call inherit-product, device/letv/max1/device.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Inherit x1-specific vendor tree
+$(call inherit-product-if-exists, vendor/letv/max1/max1-vendor.mk)
+
 PRODUCT_NAME := lineage_max1
 PRODUCT_DEVICE := max1
 PRODUCT_MANUFACTURER := LeTv

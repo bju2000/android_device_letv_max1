@@ -1,5 +1,5 @@
 #
-# Copyright 2014 The Android Open Source Project
+# Copyright (C) 2015 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,90 +14,149 @@
 # limitations under the License.
 #
 
-# This contains the module build definitions for the hardware-specific
-# components for this device.
-#
-# As much as possible, those components should be built unconditionally,
-# with device-specific names to avoid collisions, to avoid device-specific
-# bitrot and build breakages. Building a component unconditionally does
-# *not* include it on all devices, so it is safe even with hardware-specific
-# components.
-
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),max1)
 
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
-
+include $(call all-makefiles-under,$(LOCAL_PATH))
 include $(CLEAR_VARS)
 
-WCNSS_FW := WCNSS_qcom_wlan_nv.bin WCNSS_cfg.dat
-WCNSS_FW_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/,$(notdir $(WCNSS_FW)))
-$(WCNSS_FW_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "WCNSS firmware links: $@"
+ADSP_IMAGES := \
+    adsp.b00 adsp.b01 adsp.b02 adsp.b03 adsp.b04 adsp.b05 adsp.b06 adsp.b07 \
+    adsp.b08 adsp.b09 adsp.b10 adsp.b11 adsp.b12 adsp.b13 adsp.b14 adsp.b15 \
+    adsp.mbn adsp.mdt
+
+ADSP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(ADSP_IMAGES)))
+$(ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "ADSP firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /system/etc/wifi/$(notdir $@) $@
+	$(hide) ln -sf /firmware/adsp/image/$(notdir $@) $@
 
-WCNSS_CFG := WCNSS_qcom_cfg.ini
-WCNSS_CFG_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld/,$(notdir $(WCNSS_CFG)))
-$(WCNSS_CFG_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "WCNSS configs and firmware links: $@"
+ALL_DEFAULT_INSTALLED_MODULES += $(ADSP_SYMLINKS)
+
+CMN_IMAGES := \
+    cmnlib.b00 cmnlib.b01 cmnlib.b02 cmnlib.b03 cmnlib.mdt
+
+CMN_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(CMN_IMAGES)))
+$(CMN_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "CMN firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /system/etc/wifi/$(notdir $@) $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-WCNSS_MAC_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/wlan_mac.bin
-$(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
-	@echo "WCNSS MAC bin link: $@"
+ALL_DEFAULT_INSTALLED_MODULES += $(CMN_SYMLINKS)
+
+ISDB_IMAGES := \
+    isdbtmm.b00 isdbtmm.b01 isdbtmm.b02 isdbtmm.b03 isdbtmm.mdt
+
+ISDB_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(ISDB_IMAGES)))
+$(ISDB_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "ISDB firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /persist/$(notdir $@) $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_CFG_SYMLINKS) $(WCNSS_MAC_SYMLINK) $(WCNSS_FW_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(ISDB_SYMLINKS)
 
-IMS_LIBS := libimscamera_jni.so libimsmedia_jni.so
-IMS_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR_APPS)/ims/lib/arm64/,$(notdir $(IMS_LIBS)))
-$(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "IMS lib link: $@"
+KM_IMAGES := \
+    keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt
+
+KM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(KM_IMAGES)))
+$(KM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Keymaster firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /system/vendor/lib64/$(notdir $@) $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(IMS_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(KM_SYMLINKS)
 
-BT_FIRMWARE := btfw32.tlv btnv32.bin btnv32.b15
-BT_FIRMWARE_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(BT_FIRMWARE)))
-$(BT_FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Creating BT firmware symlink: $@"
+MBA_IMAGES := \
+    mba.b00 mba.mdt
+
+MBA_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(MBA_IMAGES)))
+$(MBA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "MBA firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /bt_firmware/image/$(notdir $@) $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(BT_FIRMWARE_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(MBA_SYMLINKS)
 
-RFS_MSM_ADSP_SYMLINKS := $(TARGET_OUT)/rfs/msm/adsp/
-$(RFS_MSM_ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Creating RFS MSM ADSP folder structure: $@"
-	@rm -rf $@/*
-	@mkdir -p $(dir $@)/readonly
-	$(hide) ln -sf /data/tombstones/lpass $@/ramdumps
-	$(hide) ln -sf /persist/rfs/msm/adsp $@/readwrite
-	$(hide) ln -sf /persist/rfs/shared $@/shared
-	$(hide) ln -sf /persist/hlos_rfs/shared $@/hlos
-	$(hide) ln -sf /firmware $@/readonly/firmware
+MODEM_IMAGES := \
+    modem.b00 modem.b01 modem.b03 modem.b04 modem.b05 modem.b06 \
+    modem.b07 modem.b08 modem.b09 modem.b10 modem.b11 modem.b12 \
+    modem.b13 modem.b14 modem.b18 modem.b19 modem.b21 modem.b22 \
+    modem.mdt modem_pr
 
-RFS_MSM_MPSS_SYMLINKS := $(TARGET_OUT)/rfs/msm/mpss/
-$(RFS_MSM_MPSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Creating RFS MSM MPSS folder structure: $@"
-	@rm -rf $@/*
-	@mkdir -p $(dir $@)/readonly
-	$(hide) ln -sf /data/tombstones/modem $@/ramdumps
-	$(hide) ln -sf /persist/rfs/msm/mpss $@/readwrite
-	$(hide) ln -sf /persist/rfs/shared $@/shared
-	$(hide) ln -sf /persist/hlos_rfs/shared $@/hlos
-	$(hide) ln -sf /firmware $@/readonly/firmware
+MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(MODEM_IMAGES)))
+$(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Modem firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(RFS_MSM_ADSP_SYMLINKS) $(RFS_MSM_MPSS_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(MODEM_SYMLINKS)
+
+PLAYREADY_IMAGES := \
+    playread.b00 playread.b01 playread.b02 playread.b03 playread.mdt
+
+PLAYREADY_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(PLAYREADY_IMAGES)))
+$(PLAYREADY_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Playready firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(PLAYREADY_SYMLINKS)
+
+WV_IMAGES := \
+    widevine.b00 widevine.b01 widevine.b02 widevine.b03 widevine.mdt
+
+WV_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WV_IMAGES)))
+$(WV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Widevine firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WV_SYMLINKS)
+
+WCD9320_IMAGES := \
+    wcd9320_anc.bin wcd9320_mad_audio.bin wcd9320_mbhc.bin
+
+WCD9320_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/wcd9320/,$(WCD9320_IMAGES))
+$(WCD9320_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "wcd9320 firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	tf=$(notdir $@); if [ "$$tf" == "wcd9320_mbhc.bin" ]; then tf="mbhc.bin"; fi; ln -sf /data/misc/audio/$$tf $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WCD9320_SYMLINKS)
+
+WLAN_IMAGES := \
+    bdwlan30.bin bdwlan31.bin otp30.bin qwlan30.bin
+
+WLAN_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WLAN_IMAGES)))
+
+$(WLAN_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "WLAN firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WLAN_SYMLINKS)
+
+$(shell mkdir -p $(TARGET_OUT_ETC)/firmware; \
+    ln -sf /dev/block/bootdevice/by-name/msadp \
+        $(TARGET_OUT_ETC)/firmware/msadp)
+
+# Create a link for the WCNSS config file, which ends up as a writable
+# version in /data/misc/wifi
+$(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/qca_cld; \
+    ln -sf /system/etc/wifi/WCNSS_qcom_cfg.ini \
+	    $(TARGET_OUT)/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini; \
+    ln -sf /persist/wlan_mac.bin \
+	    $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/wlan_mac.bin)
 
 endif

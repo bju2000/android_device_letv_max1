@@ -62,10 +62,10 @@ PRODUCT_PACKAGES += \
 #    msm8994_tune.sh
 
 # Keyhandler
-#PRODUCT_PACKAGES += \
-#    org.lineageos.keyhandler
+PRODUCT_PACKAGES += \
+    org.lineageos.keyhandler
 
-#PRODUCT_SYSTEM_SERVER_JARS += org.lineageos.keyhandler
+PRODUCT_SYSTEM_SERVER_JARS += org.lineageos.keyhandler
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -214,11 +214,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
-# Kernel
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/zImage:kernel \
-#    $(LOCAL_PATH)/dt.img:dt.img
-
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/fpc1020.kl:system/usr/keylayout/fpc1020.kl \
@@ -254,7 +249,11 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libOmxVdecHevc \
     libOmxVenc \
-    libstagefrighthw
+    libstagefrighthw \
+    qcmediaplayer
+
+PRODUCT_BOOT_JARS += \
+	qcmediaplayer
 
 # Modules
 PRODUCT_COPY_FILES += \

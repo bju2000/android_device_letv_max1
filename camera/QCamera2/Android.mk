@@ -58,7 +58,7 @@ LOCAL_C_INCLUDES := \
         $(LOCAL_PATH)/util \
         hardware/qcom/media-caf/msm8994/libstagefrighthw \
         device/qcom/common/power \
-	frameworks/native/libs/nativewindow/include \
+        frameworks/native/libs/nativewindow/include \
         $(call include-path-for, android.hidl.token@1.0-utils) \
         $(call include-path-for, android.hardware.graphics.bufferqueue@1.0)
 
