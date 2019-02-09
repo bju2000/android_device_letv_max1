@@ -68,7 +68,7 @@ BOARD_RAMDISK_OFFSET := 0x01000000
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/letv/msm8994
-TARGET_KERNEL_CONFIG := msm8994-max1-perf_defconfig
+TARGET_KERNEL_CONFIG := msm8994-perf_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # Lights
@@ -134,6 +134,7 @@ OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 TARGET_UNIFIED_DEVICE := true
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_LIBINIT_DEFINES_FILE := $(PLATFORM_PATH)/init/init_max1.c
+
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 
@@ -160,8 +161,8 @@ TARGET_PROVIDES_WCNSS_QMI := true
 #WIFI_DRIVER_FW_PATH_AP := "ap"
 #WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
-WIFI_DRIVER_MODULE_NAME := "wlan"
+#WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+#WIFI_DRIVER_MODULE_NAME := "wlan"
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -174,7 +175,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/recovery.fstab
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk

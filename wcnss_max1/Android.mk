@@ -18,7 +18,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_SRC_FILES := wcnss_x1_client.c
+LOCAL_SRC_FILES := wcnss_max1_client.c
 
 LOCAL_C_INCLUDES += hardware/qcom/wlan/wcnss_service
 LOCAL_CFLAGS += -Wall

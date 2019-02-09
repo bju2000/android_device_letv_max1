@@ -16,7 +16,7 @@
 
 //#define LOG_NDEBUG 0
 
-#define LOG_TAG "wcnss_x1"
+#define LOG_TAG "wcnss_max1"
 
 #define SUCCESS 0
 #define FAILED -1
@@ -34,7 +34,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static const char x1_mac_prefix[] = { 0x84, 0x73, 0x03 };
+static const char max1_mac_prefix[] = { 0x84, 0x73, 0x03 };
 
 int wcnss_init_qmi(void)
 {
@@ -91,14 +91,14 @@ int wcnss_qmi_get_wlan_address(unsigned char *pBdAddr)
 
     // If that fails as well, randomize a MAC
     if (!success) {
-        memcpy(pBdAddr, x1_mac_prefix, sizeof(x1_mac_prefix));
+        memcpy(pBdAddr, max1_mac_prefix, sizeof(max1_mac_prefix));
 
         // We don't need strong randomness, and if the NV is corrupted
         // any hardware values are suspect, so just seed it with the
         // current time
         srand(time(NULL));
 
-        for (i = sizeof(x1_mac_prefix) / sizeof(x1_mac_prefix[0]); i < MAC_ADDR_SIZE; i++) {
+        for (i = sizeof(max1_mac_prefix) / sizeof(max1_mac_prefix[0]); i < MAC_ADDR_SIZE; i++) {
             pBdAddr[i] = rand() % 255;
         }
 
