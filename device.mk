@@ -39,14 +39,34 @@ PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.class_main.sh \
-    init.qcom.rc \
-    init.qcom.sh \
-    init.qcom.usb.max1.rc \
-    init.qcom.usb.sh \
     init.rc \
-    init.target.rc \
-    ueventd.qcom.rc
+    uevent.rc \
+    init.recovery.usb.rc \
+    uevent.goldfish.rc \
+    permissive.sh \
+    install-recovery.sh \
+    hcidump.sh \
+    hsic.control.bt.sh \
+    init.ath3k.bt.sh \
+    init.crda.sh \
+    init.qcom.audio.sh \
+    init.qcom.bt.sh \
+    init.qcom.coex.sh \
+    init.qcom.debug.sh \
+    init.qcom.dload_quit.sh \
+    init.qcom.dloadsetup.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.fm.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sdio.sh \
+    init.qcom.uicc.sh \
+    init.qcom.wifi.sh \
+    init.qcom.zram.sh \
+    letv.start_sys.sh \
+    letv.stop_sys.sh \
+    qca6234-service.sh \
+    usf_post_boot.sh \
+    usf_settings.sh
 
 # Qcom init scripts for /etc
 #PRODUCT_PACKAGES += \

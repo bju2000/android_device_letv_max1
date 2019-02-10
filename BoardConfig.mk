@@ -184,5 +184,11 @@ BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
 
+# If we want to compile twrp along with LineageOS, we have to set this.
+# We also need twrp at <lineage>/bootable/recovery-twrp, e.g.:
+# git clone https://github.com/omnirom/android_bootable_recovery.git recovery-twrp
+# More info at https://forum.xda-developers.com/showthread.php?t=1943625
+#RECOVERY_VARIANT := twrp
+
 # inherit from the proprietary version
 -include vendor/letv/max1/BoardConfigVendor.mk
