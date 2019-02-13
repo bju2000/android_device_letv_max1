@@ -13,7 +13,7 @@ allow gsiffd quipc_data_file:dir rw_dir_perms;
 allow gsiffd quipc_data_file:sock_file create_file_perms;
 
 # Create sockets
-#allow gsiffd self:socket create_socket_perms;
+allow gsiffd self:socket create_socket_perms;
 
 # Run stat on /dev/sensors
 allow gsiffd sensors_device:chr_file getattr;

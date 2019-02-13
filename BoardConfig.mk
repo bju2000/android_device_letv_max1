@@ -1,5 +1,4 @@
 # Copyright (C) 2015 The CyanogenMod Project
-# Copyright (C) 2017-2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,13 +20,11 @@
 # definition file).
 #
 
-TARGET_OTA_ASSERT_DEVICE := max1,MAX1,x900,X900,x900+,X900+
-
-PLATFORM_PATH := device/letv/max1
+TARGET_OTA_ASSERT_DEVICE := max1
 
 BOARD_VENDOR := letv
-BOARD_USES_LINEAGE_HARDWARE := true
-BOARD_HARDWARE_CLASS += hardware/lineage/lineagehw
+BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
 TARGET_POWERHAL_VARIANT := qcom
 
 # Bootloader
@@ -58,18 +55,20 @@ TARGET_CPU_CORTEX_A53 := true
 TARGET_USES_64_BIT_BINDER := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_RAMDISK_OFFSET := 0x01000000
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
+BOARD_MKBOOTIMG_ARGS := --tags_offset 0x00000100
+#TARGET_CUSTOM_DTBTOOL := dtbToolV3
 TARGET_KERNEL_SOURCE := kernel/letv/msm8994
 TARGET_KERNEL_CONFIG := msm8994-perf_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -78,7 +77,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 BOARD_USES_QCOM_HARDWARE := true
 
 # ANT+
-BOARD_ANT_WIRELESS_DEVICE := "qualcomm-uart"
+BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -93,7 +92,7 @@ AUDIO_FEATURE_ENABLED_FLAC_OFFLOAD := true
 AUDIO_FEATURE_ENABLED_FLUENCE := true
 AUDIO_FEATURE_ENABLED_FM := true
 AUDIO_FEATURE_ENABLED_HFP := true
-AUDIO_FEATURE_ENABLED_INCALL_MUSIC := false
+AUDIO_FEATURE_ENABLED_INCALL_MUSIC := true
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
 AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
 AUDIO_FEATURE_ENABLED_LOW_LATENCY_CAPTURE := true
@@ -105,7 +104,7 @@ AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_HAS_QCA_BT_ROME := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/letv/max1/bluetooth
 
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
@@ -115,7 +114,7 @@ EXTENDED_FONT_FOOTPRINT := true
 
 # GPS
 TARGET_NO_RPC := true
-TARGET_GPS_HAL_PATH := $(PLATFORM_PATH)/gps
+TARGET_GPS_HAL_PATH := device/letv/max1/gps
 
 # Graphics
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
@@ -133,19 +132,28 @@ OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 # Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
-TARGET_LIBINIT_DEFINES_FILE := $(PLATFORM_PATH)/init/init_max1.c
-
+TARGET_LIBINIT_DEFINES_FILE := device/letv/max1/init/init_max1.c
 # Power
 TARGET_POWERHAL_VARIANT := qcom
-
 # Ril
 TARGET_RIL_VARIANT := caf
 SIM_COUNT := 2
+TARGET_GLOBAL_CFLAGS += -DANDROID_MULTI_SIM
+TARGET_GLOBAL_CPPFLAGS += -DANDROID_MULTI_SIM
 # Added to indicate that protobuf-c is supported in this build
 PROTOBUF_SUPPORTED := true
 
 # RPC
 TARGET_NO_RPC := true
+
+# Enable dexpreopt to speed boot time
+ifeq ($(HOST_OS),linux)
+  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
+    ifeq ($(WITH_DEXPREOPT_BOOT_IMG_ONLY),)
+      WITH_DEXPREOPT_BOOT_IMG_ONLY := true
+    endif
+  endif
+endif
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -161,8 +169,8 @@ TARGET_PROVIDES_WCNSS_QMI := true
 #WIFI_DRIVER_FW_PATH_AP := "ap"
 #WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-#WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
-#WIFI_DRIVER_MODULE_NAME := "wlan"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+WIFI_DRIVER_MODULE_NAME := "wlan"
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -175,20 +183,15 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/letv/max1/rootdir/etc/fstab.qcom
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
+
+BOARD_SEPOLICY_DIRS += device/letv/max1/sepolicy
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
-
-# If we want to compile twrp along with LineageOS, we have to set this.
-# We also need twrp at <lineage>/bootable/recovery-twrp, e.g.:
-# git clone https://github.com/omnirom/android_bootable_recovery.git recovery-twrp
-# More info at https://forum.xda-developers.com/showthread.php?t=1943625
-#RECOVERY_VARIANT := twrp
 
 # inherit from the proprietary version
 -include vendor/letv/max1/BoardConfigVendor.mk

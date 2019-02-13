@@ -39,34 +39,16 @@ PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 
 # Ramdisk
 PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.class_main.sh \
+    init.qcom.rc \
+    init.qcom.sh \
+    init.qcom.usb.max1.rc \
+    init.qcom.usb.max1_in.rc \
+    init.qcom.usb.sh \
     init.rc \
-    uevent.rc \
-    init.recovery.usb.rc \
-    uevent.goldfish.rc \
-    permissive.sh \
-    install-recovery.sh \
-    hcidump.sh \
-    hsic.control.bt.sh \
-    init.ath3k.bt.sh \
-    init.crda.sh \
-    init.qcom.audio.sh \
-    init.qcom.bt.sh \
-    init.qcom.coex.sh \
-    init.qcom.debug.sh \
-    init.qcom.dload_quit.sh \
-    init.qcom.dloadsetup.sh \
-    init.qcom.efs.sync.sh \
-    init.qcom.fm.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.sdio.sh \
-    init.qcom.uicc.sh \
-    init.qcom.wifi.sh \
-    init.qcom.zram.sh \
-    letv.start_sys.sh \
-    letv.stop_sys.sh \
-    qca6234-service.sh \
-    usf_post_boot.sh \
-    usf_settings.sh
+    init.target.rc \
+    ueventd.qcom.rc
 
 # Qcom init scripts for /etc
 #PRODUCT_PACKAGES += \
@@ -79,9 +61,9 @@ PRODUCT_PACKAGES += \
 
 # Keyhandler
 PRODUCT_PACKAGES += \
-    org.lineageos.keyhandler
+    com.cyanogenmod.keyhandler
 
-PRODUCT_SYSTEM_SERVER_JARS += org.lineageos.keyhandler
+PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -214,6 +196,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
+# Kernel
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/zImage:kernel \
+#    $(LOCAL_PATH)/dt.img:dt.img
+
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/fpc1020.kl:system/usr/keylayout/fpc1020.kl \
@@ -252,15 +239,33 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     qcmediaplayer
 
-PRODUCT_BOOT_JARS += \
-	qcmediaplayer
+PRODUCT_BOOT_JARS += qcmediaplayer
 
 # Modules
-# Alex: commented out what will be recompiled by the kernel
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/modules/ansi_cprng.ko:system/lib/modules/ansi_cprng.ko \
     $(LOCAL_PATH)/modules/core_ctl.ko:system/lib/modules/core_ctl.ko \
+    $(LOCAL_PATH)/modules/evbug.ko:system/lib/modules/evbug.ko \
+    $(LOCAL_PATH)/modules/gpio_axis.ko:system/lib/modules/gpio_axis.ko \
+    $(LOCAL_PATH)/modules/gpio_event.ko:system/lib/modules/gpio_event.ko \
+    $(LOCAL_PATH)/modules/gpio_input.ko:system/lib/modules/gpio_input.ko \
+    $(LOCAL_PATH)/modules/gpio_matrix.ko:system/lib/modules/gpio_matrix.ko \
+    $(LOCAL_PATH)/modules/gpio_output.ko:system/lib/modules/gpio_output.ko \
+    $(LOCAL_PATH)/modules/gspca_main.ko:system/lib/modules/gspca_main.ko \
+    $(LOCAL_PATH)/modules/mcDrvModule.ko:system/lib/modules/mcDrvModule.ko \
+    $(LOCAL_PATH)/modules/mcKernelApi.ko:system/lib/modules/mcKernelApi.ko \
+    $(LOCAL_PATH)/modules/mmc_block_test.ko:system/lib/modules/mmc_block_test.ko \
+    $(LOCAL_PATH)/modules/mmc_test.ko:system/lib/modules/mmc_test.ko \
+    $(LOCAL_PATH)/modules/msm-buspm-dev.ko:system/lib/modules/msm-buspm-dev.ko \
     $(LOCAL_PATH)/modules/qca_cld/qca_cld_wlan.ko:system/lib/modules/qca_cld/qca_cld_wlan.ko \
-    $(LOCAL_PATH)/modules/ufsd.ko:system/lib/modules/ufsd.ko
+    $(LOCAL_PATH)/modules/sii6400drv.ko:system/lib/modules/sii6400drv.ko \
+    $(LOCAL_PATH)/modules/spidev.ko:system/lib/modules/spidev.ko \
+    $(LOCAL_PATH)/modules/test-iosched.ko:system/lib/modules/test-iosched.ko \
+    $(LOCAL_PATH)/modules/ufs_test.ko:system/lib/modules/ufs_test.ko \
+    $(LOCAL_PATH)/modules/ufsd.ko:system/lib/modules/ufsd.ko \
+    $(LOCAL_PATH)/modules/wil6210.ko:system/lib/modules/wil6210.ko \
+    $(LOCAL_PATH)/modules/wlan.ko:system/lib/modules/wlan.ko
+
 
 # Power
 PRODUCT_PACKAGES += \

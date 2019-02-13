@@ -1,4 +1,0 @@
-# complementary declarations for backward compatibility
-type init_shell, domain;
-type debuggerd_exec, exec_type, file_type;
-type sdcard_external;

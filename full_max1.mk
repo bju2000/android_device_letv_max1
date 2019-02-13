@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from max1 device
 $(call inherit-product, device/letv/max1/device.mk)
 
-PRODUCT_NAME := lineage_max1
+PRODUCT_NAME := cm_max1
 PRODUCT_DEVICE := max1
 PRODUCT_MANUFACTURER := Letv
 PRODUCT_MODEL := max1
