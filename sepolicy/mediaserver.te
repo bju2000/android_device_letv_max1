@@ -13,7 +13,7 @@ allow mediaserver audio_cutback_data_file:dir search;
 allow mediaserver audio_cutback_data_file:sock_file write;
 
 # TODO b/17015082
-allow mediaserver shell_data_file:dir search;
+#allow mediaserver shell_data_file:dir search;
 
 #============= mediaserver ==============
 allow amp_exec amp_data_type:chr_file { read write ioctl open };
