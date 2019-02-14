@@ -33,6 +33,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <errno.h>
 
 static const char max1_mac_prefix[] = { 0x84, 0x73, 0x03 };
 
