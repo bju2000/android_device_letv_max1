@@ -1,39 +1,51 @@
 # We have a couple of non-standard NV partitions
-/dev/block/bootdevice/by-name/oem_dycnvbk                       u:object_r:modem_efs_partition_device:s0
-/dev/block/bootdevice/by-name/oem_stanvbk                       u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc\.0/f9824900\.sdhci/by-name/oem_dycnvbk          u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc\.0/f9824900\.sdhci/by-name/oem_stanvbk          u:object_r:modem_efs_partition_device:s0
 
-/data/adspd(/.*)?                                               u:object_r:adspd_data_file:s0
-/data/audio/acdbdata(/.*)?					u:object_r:acdb_data_file:s0
+# Audio calibration
+/(vendor|system/vendor)/bin/init\.tfa\.sh                               u:object_r:init_tfa_exec:s0
 
-# FRP partition
-#/dev/block/bootdevice/by-name/config                            u:object_r:frp_block_device:s0
+# Bluetooth
+(vendor|system/vendor)/bin/init\.qcom\.bt\.sh                           u:object_r:bluetooth_loader_exec:s0
+/sys/devices/bt_qca6174\.85(/.*)?                                       u:object_r:sysfs_bluetooth:s0
 
-/data/cam_socket.*                                              u:object_r:camera_socket:s0
-/dev/socket/mpdecision(/.*)?                                    u:object_r:mpdecision_socket:s0
-/dev/tfa9890							u:object_r:amp_data_type:s0
-/system/bin/dtseagleservice					u:object_r:amp_exec:s0
-# Audio DSP devices
-/dev/ttyHS3                                                     u:object_r:adspd_device:s0
+# Camera
+/sys/devices/soc\.0/fd8c0000\.qcom,msm-cam/video4linux(/.*)?            u:object_r:sysfs_camera:s0
+/sys/devices/soc\.0/fda0c000\.qcom,cci/2\.qcom,camera/video4linux(/.*)? u:object_r:sysfs_camera:s0
+/sys/devices/soc\.0/fd878000\.qcom,fd/video4linux(/.*)?                 u:object_r:sysfs_camera:s0
+/sys/devices/soc\.0/fda0c000\.qcom,cci/0\.qcom,camera/video4linux(/.*)? u:object_r:sysfs_camera:s0
+/sys/devices/soc\.0/f9928000\.i2c/i2c-6/6-0029(/.*)?                    u:object_r:sysfs_camera:s0
+/sys/bus/platform/devices/29.qcom,proximity(/.*)?                       u:object_r:sysfs_camera:s0
 
-/persist/.genmac                                                u:object_r:wifi_data_file:s0
-/persist/.bt_nv.bin                                             u:object_r:bluetooth_data_file:s0
+# Core_ctl
+/(vendor|system/vendor)/bin/init\.max1\.power\.sh                   u:object_r:init-power-sh_exec:s0
+/sys/devices/soc\.0/qcom,cpubw\.[0-9]+/devfreq/qcom,cpubw\.[0-9]+(/.*)? u:object_r:sysfs_devices_system_cpu:s0
+/sys/devices/soc\.0/qcom,cpubw\.[0-9]+/devfreq/qcom,cpubw\.[0-9]+/bw_hwmon(/.*)?     u:object_r:sysfs_devices_system_cpu:s0
+/sys/devices/soc\.0/qcom,mincpubw\.[0-9]+/devfreq/qcom,mincpubw\.[0-9]+(/.*)?        u:object_r:sysfs_devices_system_cpu:s0
+/sys/devices/virtual/net/rmnet_ipa0/queues/rx-0/rps_cpus                u:object_r:sysfs_devices_system_cpu:s0
+/sys/devices/soc\.0/qcom,gpubw\.[0-9]+/devfreq/qcom,gpubw\.[0-9]+(/.*)? u:object_r:sysfs_thermal:s0
+/sys/devices/soc\.0/qcom,bcl[^/]*(/.*)?                                 u:object_r:sysfs_thermal:s0
+/sys/devices/soc\.0/fdb00000\.qcom,kgsl-3d0/devfreq/fdb00000\.qcom,kgsl-3d0/governor u:object_r:sysfs_thermal:s0
+/sys/devices/soc\.0/fdb00000\.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel           u:object_r:sysfs_thermal:s0
+/sys/devices/soc\.0/fdb00000\.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk    u:object_r:sysfs_thermal:s0
 
-/system/bin/btnvtool                                            u:object_r:bluetooth_loader_exec:s0
-/system/bin/nvm_service						u:object_r:firmware_exec:s0
-/system/etc/init\.qcom\.bt\.sh                                  u:object_r:bluetooth_loader_exec:s0
+# Fingerprint
+/sys/devices/soc\.0/f9968000\.spi/spi_master/spi12/spi12\.0(/.*)?       u:object_r:sysfs_fingerprint:s0
+/data/fpc(/.*)?                                                         u:object_r:fpc_data_file:s0
 
-/systeb/bin/wifi_mac						u:object_r:nv_data_file:s0
-/sys/devices/soc.0/f9928000.i2c/i2c-6/6-0029/enable_ps_sensor   u:object_r:cam_sysfs:s0
-/system/bin/pl_sensor_cal                                       u:object_r:sensors_exec:s0
+# HALs
+/system/vendor/bin/hw/android\.hardware\.usb@1\.0-service\.max1          u:object_r:hal_usb_default_exec:s0
 
-/dev/i2c-6                                                      u:object_r:audio_device:s0
+# IPACM
+/system/bin/ipacm                                                       u:object_r:ipacm_exec:s0
 
-/sys/devices/soc.0/f9924000.i2c/i2c-2/2-004a/gesture_list       u:object_r:touchscreen_file:s0
-/sys/devices/soc.0/f9924000.i2c/i2c-2/2-004a/en_gesture         u:object_r:touchscreen_file:s0
+# Lights
+/sys/class/leds(/.*)?                                                   u:object_r:sysfs_leds:s0
+/sys/devices/soc\.0/leds-qpnp-(.*)?/leds(/.*)?                          u:object_r:sysfs_leds:s0
+/sys/devices/soc\.0/qpnp-wled-(.*)?/leds(/.*)?                          u:object_r:sysfs_leds:s0
+/sys/devices/soc\.0/[a-z0-9]+.qcom,mdss_mdp/[a-z0-9]+.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight(/.*)?    u:object_r:sysfs_leds:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service.max1    u:object_r:hal_light_default_exec:s0
 
-/dev/fpc1020                                                    u:object_r:fingerprint_device:s0
-/data/misc/fp(/.*)?                                             u:object_r:fingerprint_data:s0
-/sys/devices/virtual/fpsensor/fpc1020/clock_enable              u:object_r:fingerprint_sysfs:s0
-/sys/devices/virtual/fpsensor/fpc1020/ap_tz_switch              u:object_r:fingerprint_sysfs:s0
-
-/data/oemnvitems(/.*)?                                          u:object_r:nv_data_file:s0
+# RIL
+/data/oemnvitems(/.*)?                                                  u:object_r:nv_data_file:s0
+/sys/devices/soc\.0/6200000\.qcom,nvbackup_sharedmem/uio/uio4(/.*)?     u:object_r:sysfs_nv:s0

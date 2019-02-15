@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/vendor/bin/sh
 # Copyright (c) 2009-2013, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -53,7 +53,7 @@ failed ()
 
 program_bdaddr ()
 {
-  /system/bin/btnvtool -O
+  /system/vendor/bin/btnvtool -O
   logi "Bluetooth Address programmed successfully"
 }
 
@@ -156,7 +156,7 @@ config_bt ()
     "msm8974" | "msm8226" | "msm8610" | "msm8916" | "msm8909" )
        if [ "$btsoc" != "ath3k" ]
        then
-           setprop ro.bluetooth.hfp.ver 1.7
+           setprop ro.bluetooth.hfp.ver 1.6
            setprop ro.qualcomm.bt.hci_transport smd
        fi
        ;;
@@ -215,6 +215,7 @@ kill_hciattach ()
 logi "init.qcom.bt.sh config = $config"
 case "$config" in
     "onboot")
+        program_bdaddr
         config_bt
         exit 0
         ;;
@@ -285,7 +286,7 @@ case $LE_POWER_CLASS in
      logi "LE Power Class: To override, Before turning BT ON; setprop qcom.bt.le_dev_pwr_class <1 or 2 or 3>";;
 esac
 
-eval $(/system/bin/hci_qcomm_init -e $PWR_CLASS $LE_PWR_CLASS && echo "exit_code_hci_qcomm_init=0" || echo "exit_code_hci_qcomm_init=1")
+eval $(/system/vendor/bin/hci_qcomm_init -e $PWR_CLASS $LE_PWR_CLASS && echo "exit_code_hci_qcomm_init=0" || echo "exit_code_hci_qcomm_init=1")
 
 case $exit_code_hci_qcomm_init in
   0) logi "Bluetooth QSoC firmware download succeeded, $BTS_DEVICE $BTS_TYPE $BTS_BAUD $BTS_ADDRESS";;

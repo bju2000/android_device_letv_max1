@@ -1,11 +1,118 @@
-# end build properties
-#
-# from device/letv/x1/system.prop
-#
-#
-# system.prop for plutonium
-#
+# system.prop for Max1
 
+# Audio
+audio_hal.period_size=192
+audio.offload.video=true
+persist.audio.fluence.voicecall=true
+persist.audio.fluence.voicerec=false
+persist.audio.fluence.speaker=true
+ro.qc.sdk.audio.fluencetype=fluence
+ro.qc.sdk.audio.ssr=false
+persist.audio.ssr.3mic=false
+media.aac_51_output_enabled=true
+audio.offload.pcm.16bit.enable=false
+audio.offload.pcm.24bit.enable=true
+use.voice.path.for.pcm.voip=true
+audio.offload.multiple.enabled=true
+audio.offload.gapless.enabled=true
+mm.enable.smoothstreaming=true
+audio.offload.buffer.size.kb=64
+tunnel.audio.encode=false
+audio.offload.passthrough=false
+audio.deep_buffer.media=true
+audio.offload.min.duration.secs=30
+
+# Bluetooth
+bluetooth.enable_timeout_ms=12000
+bluetooth.hfp.client=1
+bt.max.hfpclient.connections=1
+qcom.bluetooth.soc=rome
+ro.bluetooth.a4wp=true
+ro.bluetooth.emb_wp_mode=true
+ro.bluetooth.wipower=true
+
+# Camera
+camera.disable_zsl_mode=1
+persist.camera.HAL3.enabled=1
+persist.camera.hal.debug.mask=0
+persist.camera.raw.format=16
+persist.camera.zsl.mode=0
+persist.camera.tintless=enable
+
+# CEC
+ro.hdmi.device_type=4
+persist.sys.hdmi.addr.playback=4
+ro.hdmi.enable=true
+persist.speaker.prot.enable=false
+persist.spkr.cal.duration=0
+qcom.hw.aac.encoder=true
+
+# CNE
+persist.cne.feature=0
+
+# Data modules
+ro.use_data_netmgrd=true
+persist.data.netmgrd.qos.enable=true
+persist.data.mode=concurrent
+ro.data.large_tcp_window_size=true
+
+# Data Power Manager (DPM)
+persist.dpm.feature=0
+
+# Dex2oat limits
+dalvik.vm.boot-dex2oat-threads=4
+dalvik.vm.dex2oat-threads=2
+dalvik.vm.image-dex2oat-threads=4
+
+# GPS
+persist.gps.qc_nlp_in_use=1
+persist.loc.nlp_name=com.qualcomm.location
+ro.gps.agps_provider=1
+ro.pip.gated=0
+
+# Graphics
+dev.pm.dyn_samplingrate=1
+persist.demo.hdmirotationlock=false
+persist.hwc.enable_vds=1
+persist.hwc.mdpcomp.enable=true
+persist.hwc.mdpcomp.maxpermixer=5
+persist.hwc.ptor.enable=true
+persist.mdpcomp.4k2kSplit=1
+persist.mdpcomp_perfhint=50
+persist.metadata_dynfps.disable=true
+ro.opengles.version=196610
+ro.qualcomm.cabl=0
+ro.sf.lcd_density=480
+
+# IMS
+persist.dbg.ims_volte_enable=1
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+
+# OEM Unlocking
+ro.oem_unlock_supported=1
+
+# Media
+media.stagefright.enable-aac=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-http=true
+media.stagefright.enable-player=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-scan=true
+media.stagefright.log-uri=1
+mmp.enable.3g2=true
+vidc.debug.perf.mode=2
+vidc.dec.120fps.enabled=1
+vidc.enc.dcvs.extra-buff-count=2
+
+# QC vendor extension
+ro.vendor.extension_library=libqti-perfd-client.so
+ro.frp.pst=/dev/block/platform/soc.0/f9824900.sdhci/by-name/config
+drm.service.enabled=true
+ro.core_ctl_min_cpu=0
+ro.core_ctl_max_cpu=4
+
+# RIL
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=
@@ -17,129 +124,25 @@ persist.rild.nitz_short_ons_0=
 persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
-#[+LEUI BEGIN] [BUG][MOBILEP-13058] [Telephony] added
-#ril.subscription.types=NV,RUIM
-ril.subscription.types=RUIM
-#[+LEUI END] [BUG][MOBILEP-13058] [Telephony] added
+ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
-# Start in global mode
-#[+LEUI BEGIN] [BUG][MOBILEP-5655] [Telephony] added
-ro.telephony.default_network=22
-#[+LEUI END] [BUG][MOBILEP-5655] [Telephony] added
+telephony.lteOnGsmDevice=1
+persist.radio.add_power_save=1
+persist.radio.multisim.config=dsds
+persist.radio.apm_sim_not_pwdn=1
+persist.radio.sib16_support=1
+persist.radio.sw_mbn_update=0
+persist.radio.start_ota_daemon=1
+persist.radio.rat_on=combine
+persist.data.qmi.adb_logmask=0
 
-#[+LEUI BEGIN] [wapi] [wifi] added
-ro.letv.wifi.wapi=false
-#[+LEUI END] [wapi] [wifi] added
-# now ts/m2ts use mmparser
-# change mmparser to google parser for flac MOBILEP-20978 [20151111]
-mm.enable.qcom_parser=3184243
-#
-# System props for telephony
-# System prop to turn on CdmaLTEPhone always
-telephony.lteOnCdmaDevice=1
-#
-#snapdragon value add features
-#
-ro.qc.sdk.audio.ssr=false
-##fluencetype can be "fluence" or "fluencepro" or "none"
-ro.qc.sdk.audio.fluencetype=none
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=true
-
+# Sensors
 ro.qc.sdk.sensors.gestures=true
 ro.qc.sdk.gestures.camera=false
 ro.qc.sdk.camera.facialproc=false
-#property to enable user to access Google WFD settings.
-persist.debug.wfd.enable=1
-#property to choose between virtual/external wfd display
-persist.sys.wfd.virtual=0
-tunnel.audio.encode = false
-#enable gapless by default
-audio.offload.gapless.enabled=true
 
-#Buffer size in kbytes for compress offload playback
-audio.offload.buffer.size.kb=32
+# Time services
+persist.timed.enable=true
 
-#Enable offload audio video playback by default
-av.offload.enable=false
-
-#Disable 16 bit PCM offload by default
-audio.offload.pcm.16bit.enable=true
-
-#Enable 24 bit PCM offload by default
-audio.offload.pcm.24bit.enable=true
-
-#audio.offload.min.duration.secs=1
-dmid=206171134
-audio.ds1.metainfo.key=273
-
-#property to enable VDS WFD solution
-persist.hwc.enable_vds=1
-
-#property for vendor specific library
-ro.vendor.at_library=libqti-at.so
-ro.vendor.gt_library=libqti-gt.so
-sys.games.gt.prof=1
-#hwui properties
-ro.hwui.texture_cache_size=72
-ro.hwui.layer_cache_size=48
-ro.hwui.r_buffer_cache_size=8
-ro.hwui.path_cache_size=32
-ro.hwui.gradient_cache_size=1
-ro.hwui.drop_shadow_cache_size=6
-ro.hwui.texture_cache_flushrate=0.4
-ro.hwui.text_small_cache_width=1024
-ro.hwui.text_small_cache_height=1024
-ro.hwui.text_large_cache_width=2048
-ro.hwui.text_large_cache_height=1024
-#AudioFlinger standby time
-ro.audio.flinger_standbytime_ms=3000
-
-#enable voice path for PCM VoIP by default
-use.voice.path.for.pcm.voip=true
-#Enable property to enable ds2
-audio.dolby.ds2.enabled=true
-
-#enable property for hard bypass
-audio.dolby.ds2.hardbypass=true
-audio.offload.passthrough=false
-audio.offload.multiple.enabled=false
-#set prtsist.radio.multisim.config as dsds acquiescently added by quanfengjie@ Ticket: 514
-persist.radio.multisim.config=dsds
-#enable default TZ to "Asia/Shanghai"
-persist.sys.timezone=Asia/Shanghai
-#add for dts enable
-audio.hwacceffects.needed=false
-audio.offload.pcm.16bit.enable=true
-audio.offload.pcm.24bit.enable=true
-use.dts_eagle=true
-audio.offload.disable=false
-#set persist.radio.no_cons_man_roam as 1 can't pop up error dialog added by yuxuewei@ Ticket: 5677
-persist.radio.no_cons_man_roam=1
-
-#set persist.radio.ignore_dom_time as 5. ignore short OOS added by zhouzhongqian@ Ticket: 9650
-persist.radio.ignore_dom_time=5
-#enable Apical AD
-ro.qcom.ad=1
-ro.qcom.ad.calib.data=/system/etc/ad_calib.cfg
-
-#send 3gpp2 MO SMS on traffic channel added by quanfengjie@ Ticket: 16659
-persist.radio.force_on_dc=true
-#
-# ADDITIONAL_BUILD_PROPERTIES
-#
-ro.vendor.maxbrightness=4095
-ro.product.locale.language=zh
-ro.product.locale.region=CN
-dolby.monospeaker=true
-ro.ril.hsxpa=1
-ro.ril.gprsclass=10
-ro.adb.qemud=1
-ro.vendor.extension_library=libqti-perfd-client.so
-persist.radio.apm_sim_not_pwdn=1
-#GPS
-persist.gps.qc_nlp_in_use=1
-persist.loc.nlp_name=com.qualcomm.location
-ro.gps.agps_provider=1
-ro.pip.gated=0
+# Wifi
+persist.data.iwlan.enable=true

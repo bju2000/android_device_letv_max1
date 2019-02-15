@@ -23,24 +23,21 @@ $(call inherit-product, device/letv/max1/device.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit x1-specific vendor tree
-$(call inherit-product-if-exists, vendor/letv/max1/max1-vendor.mk)
-
 PRODUCT_NAME := lineage_max1
 PRODUCT_DEVICE := max1
-PRODUCT_MANUFACTURER := LeTv
-PRODUCT_BRAND := LeTv
+PRODUCT_MANUFACTURER := Letv
+PRODUCT_BRAND := Letv
 
-PRODUCT_GMS_CLIENTID_BASE := android-max1
+PRODUCT_GMS_CLIENTID_BASE := android-letv
 
 TARGET_VENDOR_PRODUCT_NAME := Max1
 TARGET_VENDOR_DEVICE_NAME := Max1
 PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=Max1 PRODUCT_NAME=Max1
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="Max1-user 8.1 MMB29M 7 dev-keys"
+    PRIVATE_BUILD_DESC="Max1-user 6.0.1 MMB29M 7 dev-keys"
 
-BUILD_FINGERPRINT := LeTv/Max1/Max1:8.1/MMB29M/1447858500:user/release-keys
+BUILD_FINGERPRINT := Letv/Max1/Max1:6.0.1/MMB29M/1447858500:user/release-keys
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += ro.product.model
 
